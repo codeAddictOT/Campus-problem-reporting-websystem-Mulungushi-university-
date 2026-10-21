@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Report campus problems and facility issues to the campus support team.">
+    <title>Mulungushi University | Campus Problem Reporting System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="#home" aria-label="CampusCare home">
+            <span class="brand-icon" aria-hidden="true">MU</span>
+                <span>Mulungushi University</span>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#report">Report a Problem</a>
+                <a href="#about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <p class="eyebrow">A BETTER CAMPUS STARTS WITH YOU</p>
+                <h1 id="hero-title">Help us improve your campus.</h1>
+                <p class="hero-text">
+                    Report broken facilities, water problems, faulty equipment,
+                    internet issues and other campus concerns.
+                </p>
+                <a class="button-link" href="#report">Report an Issue</a>
+            </div>
+        </section>
+
+        <section class="report-section" id="report"
+                 aria-labelledby="report-title">
+            <div class="container form-container">
+                <div class="section-heading">
+                    <p class="eyebrow">CAMPUS SUPPORT</p>
+                    <h2 id="report-title">Submit a Problem Report</h2>
+                    <p>
+                        Complete the form below. Fields marked with
+                        <span aria-hidden="true">*</span> are required.
+                    </p>
+                </div>
+
+                <form id="reportForm" novalidate>
+                    <div id="formStatus" class="status-message"
+                         role="status" aria-live="polite"
+                         aria-atomic="true" tabindex="-1"></div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="studentName">
+                                Full Name <span aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="studentName"
+                                   name="studentName" autocomplete="name"
+                                   required minlength="2" maxlength="80"
+                                   aria-describedby="studentNameError">
+                            <small class="error" id="studentNameError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address <span aria-hidden="true">*</span>
+                            </label>
+                            <input type="email" id="email" name="email"
+                                   autocomplete="email" required maxlength="120"
+                                   aria-describedby="emailError">
+                            <small class="error" id="emailError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">
+                                Phone Number <span aria-hidden="true">*</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone"
+                                   autocomplete="tel" required
+                                   pattern="[0-9+() -]{9,20}"
+                                   minlength="9" maxlength="20"
+                                   aria-describedby="phoneError phoneHint">
+                            <small id="phoneHint" class="hint">
+                                Enter 9–20 characters using digits, spaces,
+                                +, parentheses or hyphens.
+                            </small>
+                            <small class="error" id="phoneError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">
+                                Problem Category <span aria-hidden="true">*</span>
+                            </label>
+                            <select id="category" name="category" required
+                                    aria-describedby="categoryError">
+                                <option value="">Select a category</option>
+                                <option value="classroom">Classroom equipment</option>
+                                <option value="water">Water and plumbing</option>
+                                <option value="electricity">Electricity and lighting</option>
+                                <option value="internet">Internet and Wi-Fi</option>
+                                <option value="furniture">Furniture and desks</option>
+                                <option value="building">Building and facilities</option>
+                                <option value="cleanliness">Cleaning and sanitation</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <small class="error" id="categoryError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">
+                                Campus Location <span aria-hidden="true">*</span>
+                            </label>
+                            <input type="text" id="location" name="location"
+                                   placeholder="e.g. Block B, Room 12"
+                                   required minlength="3" maxlength="100"
+                                   aria-describedby="locationError">
+                            <small class="error" id="locationError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateObserved">
+                                Date Problem Was Observed
+                                <span aria-hidden="true">*</span>
+                            </label>
+                            <input type="date" id="dateObserved"
+                                   name="dateObserved" required
+                                   aria-describedby="dateObservedError">
+                            <small class="error" id="dateObservedError"></small>
+                        </div>
+                    </div>
+
+                    <fieldset class="form-group urgency-group"
+                              aria-describedby="urgencyError">
+                        <legend>Urgency <span aria-hidden="true">*</span></legend>
+
+                        <div class="radio-options">
+                            <label class="choice">
+                                <input type="radio" name="urgency"
+                                       value="low" required>
+                                Low
+                            </label>
+                            <label class="choice">
+                                <input type="radio" name="urgency"
+                                       value="medium">
+                                Medium
+                            </label>
+                            <label class="choice">
+                                <input type="radio" name="urgency"
+                                       value="high">
+                                High
+                            </label>
+                        </div>
+                        <small class="error" id="urgencyError"></small>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <label for="description">
+                            Problem Description <span aria-hidden="true">*</span>
+                        </label>
+                        <textarea id="description" name="description"
+                                  rows="5" required minlength="10"
+                                  maxlength="1000"
+                                  placeholder="Describe the problem and how it affects students..."
+                                  aria-describedby="descriptionHint descriptionError"></textarea>
+                        <small id="descriptionHint" class="hint">
+                            Provide at least 10 characters. Maximum 1,000.
+                        </small>
+                        <small class="error" id="descriptionError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo">Attach a Photo (Optional)</label>
+                        <input type="file" id="photo" name="photo"
+                               accept="image/png,image/jpeg,image/webp"
+                               aria-describedby="photoHint photoError">
+                        <small id="photoHint" class="hint">
+                            Optional. PNG, JPG or WebP image, up to 5 MB.
+                        </small>
+                        <small class="error" id="photoError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="choice agreement" for="agreement">
+                            <input type="checkbox" id="agreement"
+                                   name="agreement" required
+                                   aria-describedby="agreementError">
+                            I confirm that the information provided is accurate.
+                            <span aria-hidden="true">*</span>
+                        </label>
+                        <small class="error" id="agreementError"></small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-button">
+                            Submit Report
+                        </button>
+                        <button type="reset" class="reset-button">
+                            Clear Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="about-section" id="about"
+                 aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title">Why report campus problems?</h2>
+                <p>
+                    Reporting problems helps the relevant campus team identify
+                    facility issues and work towards a safer, cleaner and more
+                    comfortable learning environment.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Mulungushi Unversity — Campus Problem Reporting System</p>
+            <p>Student project developed for ICS441.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
